@@ -1,22 +1,46 @@
-# CODING AGENTS: READ THIS FIRST
+# CQA Email Template
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+A reusable, product-spotlight HTML email template, originally built for Exotel's CQA (Call Quality Audit) product's "Interaction Deep Dive" announcement. Built as a self-contained, table-based HTML email (inline styles, MSO/Outlook conditionals) so it renders consistently across email clients — no build step required.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+## Structure
 
-## What you should do — IMPORTANT
+- `project/Email Template.html` — **the master template.** Fixed layout/styling with `{{handlebars}}` placeholders for anything that changes per send (copy, links, images). Not meant to be opened directly in a browser — the placeholders will show as literal text until rendered.
+- `project/template-data.example.json` — every placeholder the template expects, filled with the original CQA "Interaction Deep Dive" content, as a reference for what each variable should contain.
+- `project/examples/cqa-interaction-deep-dive.html` — the original CQA email, fully rendered (no placeholders), for a quick visual preview:
+  ```bash
+  open "project/examples/cqa-interaction-deep-dive.html"
+  ```
+- `project/assets/hero-banner.png` — hero image from the original CQA send.
+- `project/uploads/` — reference material from the original design handoff.
+- `project/CQA Interaction Deep Dive Email.html` — a generated bundler preview shell from the original Claude Design export; not part of the editable source.
 
-**Read `email-template-design/project/Email Template.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+## Using the template for a new email
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+1. Copy `project/template-data.example.json` and fill in values for the new send (headline, steps, CTA links, etc.).
+2. Render `project/Email Template.html` through your merge-tag engine of choice (SendGrid dynamic templates, Handlebars, Customer.io, etc.), passing in that data.
+3. The five numbered "steps" rows are fixed slots (`step_1_*` through `step_5_*`) — if a send needs fewer, delete the unused `<tr>` blocks in the steps timeline table; the icons/colors per row are structural and don't need to change.
+4. `hero_image_url` should point to a hosted image (not inline base64) — keeps the template lightweight and reusable across sends.
 
-## About the design files
+## Placeholders
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+| Variable | Used for |
+|---|---|
+| `email_title` | `<title>` tag |
+| `preheader_text` | hidden inbox-preview snippet |
+| `eyebrow_label` | small label above the headline |
+| `headline` / `subheadline` | top color band copy |
+| `hero_image_url` / `hero_image_alt` | header image |
+| `recipient_name` | greeting |
+| `intro_html` | intro paragraph (may contain inline `<a>`/`<strong>`) |
+| `section_heading` | heading above the steps list |
+| `step_1_title` … `step_5_title` | step titles |
+| `step_1_description` … `step_5_description` | step body text |
+| `callout_html` | highlighted callout box |
+| `cta_primary_label` / `cta_primary_url` | solid CTA button |
+| `cta_secondary_label` / `cta_secondary_url` | outlined CTA button |
+| `footer_disclaimer` | unsubscribe/preferences line |
+| `company_address` | footer address line |
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+## Design system
 
-## Bundle contents
-
-- `email-template-design/README.md` — this file
-- `email-template-design/project/` — the `Email template design` project files (HTML prototypes, assets, components)
+Icons are inlined as SVG, sourced from `@phosphor-icons/core` (the icon set used under the hood by `@exotel-npm-dev/signal-design-system`'s `Icon` component). The primary brand color (`#3949ab`) matches `indigo[600]` from the design system's theme.

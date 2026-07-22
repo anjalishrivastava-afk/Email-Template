@@ -7,7 +7,7 @@
   "hero_image_url": "https://example.com/assets/hero-banner.png",
   "hero_image_alt": "Interaction Deep Dive preview showing a call recording and quality profile",
   "recipient_name": "Vinayaka",
-  "intro_html": "You already use the Analysis List in <a href=\"https://hsl-cqa-console.in.exotel.com/cqa-ui/login\" style=\"color:#3949ab; text-decoration:underline; font-weight:bold;\">CQA</a> to track your team's call quality. The real power is in the <strong>Interaction Deep Dive</strong> — the detail view behind every scored call.",
+  "intro_html": "You already use the Analysis List in <a href=\"https://hsl-cqa-console.in.exotel.com/cqa-ui/login\" style=\"color:#394FB6; text-decoration:underline; font-weight:bold;\">CQA</a> to track your team's call quality. The real power is in the <strong>Interaction Deep Dive</strong> — the detail view behind every scored call.",
   "section_heading": "Five things you can do right now",
   "step_1_title": "Listen to the recording",
   "step_1_description": "Play the full call directly in the platform — no downloads — and hear exactly what happened.",
@@ -19,11 +19,12 @@
   "step_4_description": "Click any KPI to see the evidence and logic behind its pass/fail call — key for resolving disputes.",
   "step_5_title": "Make informed dispute decisions",
   "step_5_description": "Compare the transcript and AI reasoning side-by-side to accept or reject with confidence.",
-  "callout_html": "<strong>Training available now</strong> — watch the CQA navigation walkthrough on your HSL LMS platform.",
-  "cta_primary_label": "Watch the training",
+  "cta_heading": "Ready to explore?",
+  "cta_description": "Watch the training and navigate the CQA platform on your HSL LMS platform.",
+  "cta_primary_label": "Watch the Training",
   "cta_primary_url": "https://hdfcsec.gogetempowered.com/myCourseModule/2843",
   "cta_secondary_label": "Try it now",
-  "cta_secondary_url": "https://cqa-console.in.exotel.com/cqa-ui/login",
-  "footer_disclaimer": "You're receiving this because you're a supervisor on CQA.",
-  "company_address": ""
+  "cta_secondary_url": "https://hsl-cqa-console.in.exotel.com/cqa-ui/login",
+  "sign_off": "Best regards,<br>The CQA Team",
+  "footer_disclaimer": "You received this email because you are the CQA supervisor."
 }
